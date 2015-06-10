@@ -1,0 +1,10 @@
+.pure-header-custom {
+    position: fixed;
+    width: 100%;
+    z-index: 3
+}
+.pure-menu-custom {
+    width: 960px;
+    white-space: nowrap;
+    margin:0 auto
+}
