@@ -147,16 +147,10 @@ a.pure-button-primary {
 
 .splash {
     /* absolute center .splash within .splash-container */
-    position:relative;
     width: 80%;
     height: 50%;
     margin: auto;
-    top: 100px;
-    left: 0;
-    bottom: 0;
-    right: 0;
     text-align: center;
-    text-transform: uppercase;
 }
 
 /* This is the main heading that appears on the blue section */

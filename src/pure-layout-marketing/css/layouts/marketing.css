@@ -13,7 +13,8 @@ body {
     color: #000000;
     font-size: 13px;
     /*font-family: "Helvetica Neue", Helvetica, Microsoft Yahei, Hiragino Sans GB, WenQuanYi Micro Hei, sans-serif;*/
-    font-family: 'Arial','Microsoft YaHei', sans-serif;
+    /*font-family: 'Arial','Microsoft YaHei', sans-serif;*/
+    font-family: "Helvetica Neue","Helvetica","Lucida Grande","Arial","Hiragino Sans GB","Microsoft Yahei","WenQuanYi Micro Hei","sans-serif";
 }
 
 h1,
@@ -148,7 +149,6 @@ a.pure-button-primary {
     height: 50%;
     margin: auto;
     text-align: center;
-    text-transform: uppercase;
 }
 
 /* This is the main heading that appears on the blue section */
@@ -264,6 +264,12 @@ a.pure-button-primary {
 
 }
 
+.content-input:focus {
+    border-color: #66afe9!important;
+    outline: 0!important;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6)!important;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6)!important;
+}
 /*
  * -- DESKTOP (AND UP) MEDIA QUERIES --
  * On desktops and other large devices, we want to over-ride some
@@ -274,4 +280,52 @@ a.pure-button-primary {
     .splash-head {
         font-size: 300%;
     }
+}
+
+.icon-look:before {
+    content: '';
+    display:inline-block;
+    width:28px;
+    height:28px;
+    background-image: url("../../img/face-wink.svg");
+    background-repeat: no-repeat;
+    background-size: 28px 28px;
+    vertical-align: middle;
+}
+
+.arrow {
+    top: -11px;
+    left: 18px;
+    margin-left: -11px;
+    border-color: transparent;
+    border-bottom-color: #999;
+    border-bottom-color: rgba(0,0,0,.25);
+    border-width: 11px;
+    position: absolute;
+    display: block;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-top-width: 0;
+}
+
+.arrow:after {
+    top: 1px;
+    margin-left: -10px;
+    content: "";
+    border-color: transparent;
+    border-bottom-color: #fff;
+    content: "";
+    border-width: 10px;
+    position: absolute;
+    display: block;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-top-width: 0;
+}
+
+#face:after {
+    content:"."; display:block; height:0; visibility:hidden;
+    clear: both;
 }
