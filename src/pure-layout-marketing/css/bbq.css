@@ -5,11 +5,11 @@
 }
 
 body {
-    line-height: 1.7em;
-    color: #000000;
-    font-size: 13px;
+    line-height: 1.5rem;
+    color: #000;
+    font-size: 1rem;
     background: #F2F2F2;
-    font-family: 'Arial','Microsoft YaHei', sans-serif;
+    font-family: 'Arial', 'Microsoft YaHei', sans-serif;
 }
 
 h1,
@@ -22,118 +22,336 @@ label {
     color: #34495e;
 }
 
-.home-menu {
-    padding: 0.5em;
-    text-align: center;
-    box-shadow: 0 1px 1px rgba(0,0,0, 0.10);
-}
-.home-menu {
-    background: #2d3e50;
+a {
+    color: #000;
+    text-decoration: none;
 }
 
-.home-menu .pure-menu-heading {
+.clear-fixed:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden
+}
+
+.float-left {
+    float: left;
+}
+
+.float-right {
+    float: right;
+}
+
+.bbq-menu {
+    padding: 0.5rem;
+    text-align: left;
+    background: #2d3e50;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.10);
+}
+
+.bbq-menu .pure-menu-heading {
     color: white;
     font-weight: 400;
     font-size: 120%;
 }
 
-.home-menu .pure-menu-selected a {
+.bbq-menu .pure-menu-selected a {
     color: white;
 }
 
-.home-menu a {
+.bbq-menu a {
     color: #6FBEF3;
 }
-.home-menu li a:hover,
-.home-menu li a:focus {
+
+.bbq-menu ul {
+    float: right;
+}
+
+.bbq-menu li a:hover,
+.bbq-menu li a:focus {
     background: none;
     border: none;
     color: #AECFE5;
 }
-.splash-container {
+
+.bbq-publisher-container {
     z-index: 1;
     overflow: hidden;
-    /* The following styles are required for the "scroll-over" effect */
-    width: 100%;
-    height: 88%;
+    background-color: #fff;
+    box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4);
 }
 
-.splash {
-    /* absolute center .splash within .splash-container */
-    width: 80%;
-    height: 50%;
+.bbq-publisher {
+    width: 540px;
     margin: auto;
+}
+
+.publisher-form {
+    margin: 0.25rem 0;
+    overflow: hidden;
+}
+
+.publisher-title {
+    margin: 0.25rem 0;
+}
+
+.publisher-limit {
+    float: right;
+}
+
+.publisher-length {
+    font-size: 0.9rem;
+    font-style: italic;
+}
+
+.publisher-input {
+    resize: none;
+    width: 100%;
+    height: 100px;
+    border-radius: 2px !important;
+    line-height: 1.4rem;
+    outline: 0;
+    word-wrap: break-word;
+}
+
+.publisher-buttons {
+    margin: 0.25rem 0;
+}
+
+.publisher-buttons > button + button {
+    margin-left: 1rem;
+}
+
+.publisher-buttons .pure-button {
+    background-color: #2d3e50;
+    color: white;
+    padding: 0.5rem 2rem;
+}
+
+/**
+@font-face {
+    font-family:'iconfont';
+    src:url('../fonts/iconfont.eot');
+    src:url('../fonts/iconfont.eot?#iefix') format('embedded-opentype'),url('../fonts/iconfont.woff') format('woff'),url('../fonts/iconfont.ttf') format('truetype'),url('../fonts/iconfont.svg#uxiconfont') format('svg')
+}
+.iconfont {
+    font-family:iconfont!important;
+    font-style:normal;
+    -webkit-font-smoothing:antialiased;
+    -webkit-text-stroke-width:.2px;
+    -moz-osx-font-smoothing:grayscale
+}
+**/
+
+.bbq-content {
+    /* These styles are required for the "scroll-over" effect */
+    width: 60%;
+    margin: auto;
+    min-height: 12%;
+    z-index: 2;
+    background: transparent;
+}
+
+.bbq-list {
+    float: left;
+    width: 50%;
+    list-style: none;
+    padding: 0;
+    margin-bottom: 0;
+}
+
+.bbq-block {
+    margin: 0 0.5rem 1rem;
+    box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4);
+    background-color: #ffffff;
+    padding: 20px;
+    overflow: hidden;
+}
+
+.avatar img {
+    width: 60px;
+    height: 60px;
+    border-radius: 30px;
+    vertical-align: middle;
+}
+
+.author {
+    margin: 5px 0;
+    padding-left: 10px;
+    overflow: hidden;
+}
+
+.time {
+    margin: 3px 0;
+    padding-left: 10px;
+    font-size: 0.9rem;
+    color: #7f8c8d;
+    overflow: hidden;
+}
+
+.bbq-text, .bbq-media {
+    margin: 10px 0;
+}
+
+.bbq-media img {
+    vertical-align: middle;
+    max-height: 100%;
+    max-width: 100%;
+}
+
+.bbq-pop {
+    display: none;
+    position: absolute;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 20px 1px rgba(0, 0, 0, 0.2);
+    background-color: #ffffff;
+    padding: 1rem;
+}
+
+.bbq-pop-close:after {
+    position: absolute;
+    content: "\2716";
+    z-index: 2;
+    top: -1px;
+    right: 3px;
+    font-size: 18px;
+    cursor: pointer;
+    color: #696e78;
+}
+
+.bbq-pop-arrow {
+    top: -11px;
+    left: 18px;
+    margin-left: -11px;
+    border-color: transparent;
+    border-bottom-color: #999;
+    border-bottom-color: rgba(0, 0, 0, .25);
+    border-width: 11px;
+    position: absolute;
+    display: block;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-top-width: 0;
+}
+
+.bbq-pop-arrow:after {
+    top: 1px;
+    margin-left: -10px;
+    content: "";
+    border: 10px solid transparent;
+    border-top-width: 0;
+    border-bottom-color: #fff;
+    position: absolute;
+    display: block;
+    width: 0;
+    height: 0;
+}
+
+.bbq-faces {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.bbq-face {
+    cursor: pointer;
+    float: left;
+    border: 1px solid #e8e8e8;
+    height: 32px;
+    width: 32px;
+    overflow: hidden;
+    margin: -1px 0 0 -1px;
+    padding: 4px 2px;
     text-align: center;
 }
 
-.pure-button {
-    background-color: #1f8dd6;
-    color: white;
-    padding: 0.5em 2em;
-    border-radius: 5px;
+.bbq-face img {
+    width: 22px;
+    height: 22px;
 }
 
-a.pure-button-primary {
-    background: white;
-    color: #1f8dd6;
-    border-radius: 5px;
-    font-size: 120%;
+.bbq-preview-img {
+    width: 120px;
+    height: 120px;
+    margin-top: 23px;
+    margin-left: 23px;
 }
 
-.pure-form label {
-    margin: 1em 0 0;
-    font-weight: bold;
-    font-size: 100%;
+.bbq-paginator {
+    width: 540px;
+    /* `pure-g` Grid styles */
+    *letter-spacing: normal; /* reset IE < 8 */
+    *word-spacing: -0.43rem; /* IE < 8: collapse white-space between units */
+    text-rendering: optimizespeed; /* Webkit: fixes text-rendering: optimizeLegibility */
+
+    /* `bbq-paginator` Specific styles */
+    list-style: none;
+    margin: auto;
+    padding: 0;
+    text-align: center;
+    clear: both;
 }
 
-.pure-form input[type] {
-    border: 2px solid #ddd;
-    box-shadow: none;
-    font-size: 100%;
-    width: 100%;
-    margin-bottom: 1em;
+/* `pure-u` Grid styles */
+.bbq-paginator li {
+    display: inline-block;
+    *display: inline; /* IE < 8: fake inline-block */
+    zoom: 1;
+    letter-spacing: normal;
+    word-spacing: normal;
+    vertical-align: top;
+    text-rendering: auto;
 }
 
-@media (min-width: 48em) {
+.bbq-paginator .pure-button {
+    font-family: inherit;
+    border-radius: 0;
+    padding: 0.8rem 1.4rem;
+    vertical-align: top;
+    height: 1.1rem;
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    background-color: #fff;
+}
 
-    /* We increase the body font size */
-    body {
-        font-size: 16px;
-    }
-    /* We want to give the content area some more padding */
-    .content {
-        padding: 1em;
-    }
+.bbq-paginator .pure-button:focus,
+.bbq-paginator .pure-button:active {
+    outline-style: none;
+}
 
-    /* We can align the menu header to the left, but float the
-    menu items to the right. */
-    .home-menu {
-        text-align: left;
-    }
-    .home-menu ul {
-        float: right;
-    }
+.bbq-paginator .prev,
+.bbq-paginator .next {
+    color: #C0C1C3;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.45);
+}
 
-    /* We increase the height of the splash-container */
-    /*    .splash-container {
-            height: 500px;
-        }*/
+.bbq-paginator .prev {
+    border-radius: 2px 0 0 2px;
+}
 
-    /* We decrease the width of the .splash, since we have more width
-    to work with */
-    .splash {
-        width: 50%;
-        height: 50%;
-    }
+.bbq-paginator .next {
+    border-radius: 0 2px 2px 0;
+}
 
-    .splash-head {
-        font-size: 250%;
-    }
+.bbq-footer-container {
+}
 
+.bbq-footer {
+    padding: 2rem 0;
+    margin: 1rem auto 0;
+    text-align: center;
+    color: #fff;
+    background-color: #2d3e50;
+}
 
-    /* We remove the border-separator assigned to .l-box-lrg */
-    .l-box-lrg {
-        border: none;
-    }
+.bbq-footer a {
+    color: #fff;
+}
 
+.bbq-footer a:hover {
+    color: #fff;
+    text-decoration: underline;
 }

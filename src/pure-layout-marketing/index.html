@@ -1,183 +1,115 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" style="height:100%">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="bbq.">
     <title>BBQ</title>
-    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+    <link rel="stylesheet" href="pure-0.6.0.css">
     <!--[if lte IE 8]>
         <link rel="stylesheet" href="css/layouts/marketing-old-ie.css?v=11">
     <![endif]-->
     <!--[if gt IE 8]><!-->
-        <link rel="stylesheet" href="css/bbq.css?v=11">
+        <link rel="stylesheet" href="css/bbq.css?v=1">
     <!--<![endif]-->
 </head>
-<body style="background-color: #F2F2F2;">
-<div class="header">
-    <div class="home-menu pure-menu pure-menu-horizontal">
+<body style="height:100%">
+<div id="main">
+    <div class="pure-menu pure-menu-horizontal bbq-menu">
         <a class="pure-menu-heading" href="#">表白墙</a>
         <ul class="pure-menu-list">
             <li class="pure-menu-item"><a href="#" class="pure-menu-link">登录</a></li>
             <li class="pure-menu-item"><a href="#" class="pure-menu-link">注册</a></li>
         </ul>
     </div>
-</div>
-
-<div class="splash-container" style="background-color: #ffffff;box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4);">
-    <div class="splash" style="padding:0 50px;">
-        <form class="pure-form pure-form-stacked">
-                <h4 style="text-align: left;margin: 8px 0;">
+    <div class="bbq-publisher-container">
+        <div class="bbq-publisher">
+            <form class="pure-form pure-form-stacked publisher-form">
+                <h4 class="publisher-title">
                     <span>SAY THE HEARTS OF LOVE</span>
-                    <span style="float: right;">还可以输入<span style="font-style:italic;">140</span>字</span>
+                    <span class="publisher-limit">
+                        还可以输入<span class="publisher-length">200</span>字
+                    </span>
                 </h4>
-                <textarea id="textareaBbq" class="content-input" style="padding:0.5em;margin:0;border: 1px solid #ccc;
-    border-radius: 2px;white-space:normal;resize:none;
-    width:100%;height: 100px;box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.15) inset;
-    text-align: left;line-height:1.4em;outline: 0;background-color: #ffffff;word-break: break-all;word-wrap:break-word;
-    "></textarea>
-                <button type="button" id="btnFace" class="pure-button icon-look" title="表情" style="float:left;background-color: #2d3e50;color:#ffffff;
-    margin: 8px 0;padding-top:0.282em;padding-bottom:0.282em;">表情</button>
-                <button type="button" id="btnImage" class="pure-button icon-look" title="图片" style="float:left;background-color: #2d3e50;color:#ffffff;
-    margin: 8px;padding-top:0.282em;padding-bottom:0.282em;">图片</button>
-                <input type="file" id="file" style="display: none">
-                <button type="submit" class="pure-button" style="float:right;background-color: #2d3e50;color:#ffffff;
-    margin: 8px 0;">发布</button>
-        </form>
+                <textarea id="txtaBBQ" class="publisher-input"></textarea>
+                <!--
+                    <button type="button" id="btnFace" class="pure-button icon-look" title="表情" style="float:left;background-color: #2d3e50;color:#ffffff;
+        margin: 8px 0;padding-top:0.282em;padding-bottom:0.282em;"><i class="iconfont" >&#xe635;</i>表情</button>
+                    <button type="button" id="btnImage" class="pure-button icon-look" title="图片" style="float:left;background-color: #2d3e50;color:#ffffff;
+        margin: 8px;padding-top:0.282em;padding-bottom:0.282em;"><i class="iconfont" >&#xe6d1;</i>图片</button>
+        -->
+                <div class="publisher-buttons clear-fixed">
+                    <button id="btnFace" type="button" class="pure-button float-left" title="表情">表情</button>
+                    <button id="btnImg" type="button" class="pure-button float-left" title="图片">图片</button>
+                    <input id="inputImg" type="file" class="hidden">
+                    <button id="btnPublish" type="button" class="pure-button float-right">发布</button>
+                </div>
+            </form>
+        </div>
     </div>
-</div>
-
-<div class="content-wrapper" style="width:60%;margin:auto;">
-    <ul style="float:left;width:50%;    list-style: none;padding:0">
-        <li style="margin: 0 0.5em 1em;
-            box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4);background-color: #ffffff;padding: 20px;">
-            <div style="overflow: hidden;">
-                <div style="float:left;">
-                    <a href="/user/getDetail?userid=2346" target="_blank" style="cursor: pointer;">
-                        <img style="width:60px;height:60px;border-radius: 30px;vertical-align: middle;" src="./img/df.jpg" alt="你咯咯">
-                    </a>
-                </div>
-                <div style="margin: 2px 0;overflow: hidden;padding-left:10px">
-                    <a href="/user/getDetail?userid=2346" target="_blank" style="cursor: pointer; color: #000000;text-decoration: none;">你咯咯</a>
-                </div>
-                <div style="margin: 2px 0;overflow: hidden;padding-left:10px">
-                    <span style="font-size: 0.9em;color:#7f8c8d">1月6日 00:05</span>
-                </div>
-                <div style="line-height: 1.5em;margin: 10px 0" title="2016-01-06 00:05">
-                    很早以前就十分留意你，我想如果像你这样的女孩子我没有认识一下的话，我一定会后悔的，所以如果可以的话，把你电话留给我可以么
-                </div>
-                <div>
-                    <a href="/post/getDetail?postid=37092" target="_blank">
-                        <img src="http://static.biaobaiqiang.net/upload/image/20160106/37095/37095.jpg" style="vertical-align:middle;max-height:100%;max-width:100%;">
-                    </a>
-                </div>
-                <div class="pure-menu pure-menu-horizontal" style="margin-top: 1em;">
-                    <ul class="pure-menu-list" style="width:100%;">
-                        <li class="pure-menu-item" style="width:33.3333%;"><a href="#" class="pure-menu-link" style="text-align: center;">收藏</a></li>
-                        <li class="pure-menu-item" style="width:33.3333%;"><a href="#" class="pure-menu-link" style="text-align: center;">评论</a></li>
-                        <li class="pure-menu-item" style="width:33.3333%;"><a href="#" class="pure-menu-link" style="text-align: center;">点赞</a></li>
-                    </ul>
-                </div>
-            </div>
-        </li>
-        <li style="margin: 0 0.5em 1em;
-            box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4);background-color: #ffffff;padding: 20px;">
-            <div style="overflow: hidden;">
-                <div style="float:left;">
-                    <a href="/user/getDetail?userid=2346" target="_blank" style="cursor: pointer;">
-                        <img style="width:60px;height:60px;border-radius: 30px;vertical-align: middle;" src="web_dface.png" alt="你咯咯">
-                    </a>
-                </div>
-                <div style="margin: 2px 0;overflow: hidden;padding-left:10px">
-                    <a href="/user/getDetail?userid=2346" target="_blank" style="cursor: pointer; color: #000000;text-decoration: none;">你咯咯</a>
-                </div>
-                <div style="margin: 2px 0;overflow: hidden;padding-left:10px">
-                    <span style="font-size: 0.9em;color:#7f8c8d">1月6日 00:05</span>
-                </div>
-                <div style="line-height: 1.5em;margin: 10px 0" title="2016-01-06 00:05">
-                    很早以前就十分留意你，我想如果像你这样的女孩子我没有认识一下的话，我一定会后悔的，所以如果可以的话，把你电话留给我可以么
-                </div>
-                <div>
-                    <a href="/post/getDetail?postid=37092" target="_blank">
-                        <img src="http://static.biaobaiqiang.net/upload/image/20160112/37117/37117.webp" style="vertical-align:middle;max-height:100%;max-width:100%;">
-                    </a>
-                </div>
-                <div class="pure-menu pure-menu-horizontal" style="margin-top: 1em;">
-                    <ul class="pure-menu-list" style="width:100%;">
-                        <li class="pure-menu-item" style="width:33.3333%;"><a href="#" class="pure-menu-link" style="text-align: center;">收藏</a></li>
-                        <li class="pure-menu-item" style="width:33.3333%;"><a href="#" class="pure-menu-link" style="text-align: center;">评论</a></li>
-                        <li class="pure-menu-item" style="width:33.3333%;"><a href="#" class="pure-menu-link" style="text-align: center;">点赞</a></li>
-                    </ul>
-                </div>
-            </div>
-        </li>
-    </ul>
-    <ul style="float:left;width:50%;    list-style: none;padding:0">
-        <li style="margin: 0 0.5em 1em;
-            box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4);background-color: #ffffff;padding: 20px;">
-            <div style="overflow: hidden;">
-                <div style="float:left;">
-                    <a href="/user/getDetail?userid=2346" target="_blank" style="cursor: pointer;">
-                        <img style="width:60px;height:60px;border-radius: 30px;vertical-align: middle;" src="web_dface.png" alt="你咯咯">
-                    </a>
-                </div>
-                <div style="margin: 2px 0;overflow: hidden;padding-left:10px">
-                    <a href="/user/getDetail?userid=2346" target="_blank" style="cursor: pointer; color: #000000;text-decoration: none;">你咯咯</a>
-                </div>
-                <div style="margin: 2px 0;overflow: hidden;padding-left:10px">
-                    <span style="font-size: 0.9em;color:#7f8c8d">1月6日 00:05</span>
-                </div>
-                <div style="line-height: 1.5em;margin: 10px 0" title="2016-01-06 00:05">
-                    很早以前就十分留意你，我想如果像你这样的女孩子我没有认识一下的话，我一定会后悔的，所以如果可以的话，把你电话留给我可以么
-                </div>
-                <div>
-                    <a href="/post/getDetail?postid=37092" target="_blank">
-                        <img src="http://static.biaobaiqiang.net/upload/image/20160106/37092/37092.jpg" style="vertical-align:middle;max-height:100%;max-width:100%;">
-                    </a>
-                </div>
-                <div class="pure-menu pure-menu-horizontal" style="margin-top: 1em;">
-                    <ul class="pure-menu-list" style="width:100%;">
-                        <li class="pure-menu-item" style="width:33.3333%;"><a href="#" class="pure-menu-link" style="text-align: center;">收藏</a></li>
-                        <li class="pure-menu-item" style="width:33.3333%;"><a href="#" class="pure-menu-link" style="text-align: center;">评论</a></li>
-                        <li class="pure-menu-item" style="width:33.3333%;"><a href="#" class="pure-menu-link" style="text-align: center;">点赞</a></li>
-                    </ul>
-                </div>
-            </div>
-        </li>
-        <li style="margin: 0 0.5em 1em;
-            box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4);background-color: #ffffff;padding: 20px;">
-            <div style="overflow: hidden;">
-                <div style="float:left;">
-                    <a href="/user/getDetail?userid=2346" target="_blank" style="cursor: pointer;">
-                        <img style="width:60px;height:60px;border-radius: 30px;vertical-align: middle;" src="web_dface.png" alt="你咯咯">
-                    </a>
-                </div>
-                <div style="margin: 2px 0;overflow: hidden;padding-left:10px">
-                    <a href="/user/getDetail?userid=2346" target="_blank" style="cursor: pointer; color: #000000;text-decoration: none;">你咯咯</a>
-                </div>
-                <div style="margin: 2px 0;overflow: hidden;padding-left:10px">
-                    <span style="font-size: 0.9em;color:#7f8c8d">1月6日 00:05</span>
-                </div>
-                <div style="line-height: 1.5em;margin: 10px 0" title="2016-01-06 00:05">
-                    很早以前就十分留意你，我想如果像你这样的女孩子我没有认识一下的话，我一定会后悔的，所以如果可以的话，把你电话留给我可以么
-                </div>
-                <div>
-                    <a href="/post/getDetail?postid=37092" target="_blank">
-                        <img src="http://static.biaobaiqiang.net/upload/image/20160117/37128/37128.jpeg" style="vertical-align:middle;max-height:100%;max-width:100%;">
-                    </a>
-                </div>
-                <div class="pure-menu pure-menu-horizontal" style="margin-top: 1em;">
-                    <ul class="pure-menu-list" style="width:100%;">
-                        <li class="pure-menu-item" style="width:33.3333%;"><a href="#" class="pure-menu-link" style="text-align: center;">收藏</a></li>
-                        <li class="pure-menu-item" style="width:33.3333%;"><a href="#" class="pure-menu-link" style="text-align: center;">评论</a></li>
-                        <li class="pure-menu-item" style="width:33.3333%;"><a href="#" class="pure-menu-link" style="text-align: center;">点赞</a></li>
-                    </ul>
-                </div>
-            </div>
-        </li>
-    </ul>
-</div>
+    <div class="bbq-content clear-fixed">
+        <div id="bbqLoading" style="display:none;text-align: center;vertical-align: middle"><span>加载中</span></div>
+        <ul id="bbqList1" class="bbq-list">
+        </ul>
+        <ul id="bbqList2" class="bbq-list">
+        </ul>
+        <!--
+        <ul class="bbq-paginator" style="display:none;">
+            <li><a class="pure-button prev" href="#">&#171;</a></li>
+            <li><a class="pure-button" href="#">1</a></li>
+            <li><a class="pure-button pure-button-active" href="#">2</a></li>
+            <li><a class="pure-button" href="#">3</a></li>
+            <li><a class="pure-button" href="#">4</a></li>
+            <li><a class="pure-button" href="#">5</a></li>
+            <li><a class="pure-button next" href="#">&#187;</a></li>
+        </ul>
+        -->
+    </div>
+    <div class="bbq-footer">
+        Copyright © <a href="www.biaobaiqiang.net">表白墙</a>&nbsp;|&nbsp;
+        <a href="#" target="_blank">关于我们</a>&nbsp;|&nbsp;
+        <a href="http://weibo.com/u/5191312157" target="_blank">@新浪微博</a>&nbsp;|&nbsp;
+        粤ICP备13050460号
+    </div>
+<div>
+<script id="bbqTemplate" type="text/html">
+    <li class="bbq-block" style="display:none">
+        <div class="avatar float-left">
+            <a href="#">
+                {{if user && user.headpic}}
+                <img src="{{user.headpic}}" alt="{{nickname}}">
+                {{else}}
+                <img src="./img/df.jpg" alt="{{nickname}}">
+                {{/if}}
+            </a>
+        </div>
+        <div class="author">
+            <a href="#">{{nickname}}</a>
+        </div>
+        <div class="time">{{addtime}}&nbsp;&nbsp;{{location}}</div>
+        <div class="bbq-text" title="{{addtime}}">{{content}}</div>
+        {{if imageurl}}
+        <div class="bbq-media">
+            <a href="#" target="_blank">
+                <img src="{{imageurl}}">
+            </a>
+        </div>
+        {{/if}}
+        <div class="pure-menu pure-menu-horizontal">
+            <ul class="pure-menu-list" style="width:100%;">
+                <li class="pure-menu-item" style="width:33.3333%;"><a href="#" class="pure-menu-link" style="text-align: center;">收藏</a></li>
+                <li class="pure-menu-item" style="width:33.3333%;"><a href="#" class="pure-menu-link" style="text-align: center;">评论</a></li>
+                <li class="pure-menu-item" style="width:33.3333%;"><a href="#" class="pure-menu-link" style="text-align: center;">点赞</a></li>
+            </ul>
+        </div>
+    </li>
+</script>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
-<script src="./js/main.js?v=1"></script>
+<!--
+<script src="http://gsgd.co.uk/sandbox/jquery/easing/jquery.easing.1.3.js"></script>-->
+<script src="./js/template.js?v=8&callback=alert"></script>
+    <script>
+        document.write("<scri"+"pt type='text/javascript' src='./js/main.js?"+Math.random()+"'></s"+"cript>");
+    </script>
 </body>
 </html>
