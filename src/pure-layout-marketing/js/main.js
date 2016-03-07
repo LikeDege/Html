@@ -39,21 +39,9 @@ $(document).ready(function() {
                     initOne(i+1);
                 })(0);
                 $(window).scroll(function(){
-                    if($("body").scrollTop() >= $("#main").height() - $("body").height()||
-                        ($(".bbq-menu")[0].offsetHeight + $(".bbq-publisher-container")[0].offsetHeight + $("#bbqList1")[0].offsetHeight < $("body").scrollTop() + $("body").height() &&
-                        $("#bbqList1").find(":hidden:first").length > 0)||
-                        ($(".bbq-menu")[0].offsetHeight + $(".bbq-publisher-container")[0].offsetHeight + $("#bbqList2")[0].offsetHeight < $("body").scrollTop() + $("body").height() &&
-                        $("#bbqList2").find(":hidden:first").length > 0)){
-                        while($(".bbq-menu")[0].offsetHeight + $(".bbq-publisher-container")[0].offsetHeight + $("#bbqList1")[0].offsetHeight < $("body").scrollTop() + $("body").height() &&
-                        $("#bbqList1").find(":hidden:first").length > 0){
+                    if($("body").scrollTop() >= $("#main").height() - $("body").height()){
                             $("#bbqList1").find(":hidden:first").fadeIn(200);
-                            console.log(1);
-                        }
-                        while($(".bbq-menu")[0].offsetHeight + $(".bbq-publisher-container")[0].offsetHeight + $("#bbqList2")[0].offsetHeight < $("body").scrollTop() + $("body").height() &&
-                            $("#bbqList2").find(":hidden:first").length > 0){
                             $("#bbqList2").find(":hidden:first").fadeIn(200);
-                            console.log(2);
-                        }
                     }
                 });
                 $(window).scroll();
