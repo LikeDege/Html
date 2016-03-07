@@ -1,0 +1,506 @@
+<html class=" -webkit-"><head>
+    <meta charset="utf-8">
+    <title>ali-animation</title>
+
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="canonical" href="http://s.cssdeck.com/labs/ali-animation">
+
+    <style media="" data-href="/assets/css/normalize.min.css">/*! normalize.css v2.0.1 | MIT License | git.io/normalize */article,aside,details,figcaption,figure,footer,header,hgroup,nav,section,summary{display:block}audio,canvas,video{display:inline-block}audio:not([controls]){display:none;height:0}[hidden]{display:none}html{font-family:sans-serif;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}body{margin:0}a:focus{outline:thin dotted}a:active,a:hover{outline:0}h1{font-size:2em}abbr[title]{border-bottom:1px dotted}b,strong{font-weight:bold}dfn{font-style:italic}mark{background:#ff0;color:#000}code,kbd,pre,samp{font-family:monospace,serif;font-size:1em}pre{white-space:pre;white-space:pre-wrap;word-wrap:break-word}q{quotes:"\201C" "\201D" "\2018" "\2019"}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sup{top:-0.5em}sub{bottom:-0.25em}img{border:0}svg:not(:root){overflow:hidden}figure{margin:0}fieldset{border:1px solid #c0c0c0;margin:0 2px;padding:.35em .625em .75em}legend{border:0;padding:0}button,input,select,textarea{font-family:inherit;font-size:100%;margin:0}button,input{line-height:normal}button,html input[type="button"],input[type="reset"],input[type="submit"]{-webkit-appearance:button;cursor:pointer}button[disabled],input[disabled]{cursor:default}input[type="checkbox"],input[type="radio"]{box-sizing:border-box;padding:0}input[type="search"]{-webkit-appearance:textfield;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box}input[type="search"]::-webkit-search-cancel-button,input[type="search"]::-webkit-search-decoration{-webkit-appearance:none}button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}textarea{overflow:auto;vertical-align:top}table{border-collapse:collapse;border-spacing:0}</style>
+
+    <style>
+        body{padding:20px;}
+
+        .body{
+            position:absolute;left:0;top:0;z-index:1;
+            width:30px;height:30px;
+            background:#eb0101;
+            border:2px solid #000;
+            border-radius:30px 10px 20px 20px/15px 30px 5px 10px;
+        }
+        .body::before{content:' ';position:absolute;left:4px;top:10px;z-index:5;
+            width:14px;height:18px;
+            background:#eb0101;
+        }
+        .header-outside::before{content:' ';position:absolute;left:106px;top:93px;z-index:5;
+            width:12px;height:12px;
+            background:#eb0101;
+            border-radius:0 0 12px 0/0 0 12px 0;
+            -webkit-transform:rotateZ(-36deg);
+        }
+        .hand{
+            position:absolute;bottom:-5px;left:8px;z-index:2;
+            -webkit-transform:rotateZ(14deg) skew(-16deg);
+            width:26px;height:12px;
+            background:#eb0101;
+            border:2px solid #000;
+            border-left:0 none;
+            border-radius:0px 26px 20px 3px/0px 8px 8px 5px;
+        }
+        .foot{
+            position:absolute;left:30px;bottom:-2px;z-index:1;
+            width:24px;height:10px;
+            background:#eb0101;
+            border:2px solid #000;
+            border-radius:12px 12px 18px 4px/8px 6px 6px 2px;
+        }
+        .ass{
+            position:absolute;top:0;left:24px;z-index:-1;
+            width:16px;height:28px;
+            background:#FFF;
+            border:2px solid #000;
+            border-radius:2px 16px 12px 0/2px 18px 10px 0;
+        }
+        .header{
+            position:absolute;left:6px;top:20px;z-index:2;
+            width:104px;height:94px;
+            background:#eb0101;
+            border:2px solid #000;
+            border-radius:66px 34px 45px 55px/70px 60px 20px 30px;
+            overflow:hidden;
+        }
+        .face{position:absolute;left:-5px;bottom:0;
+            width:34px;height:70px;
+            background:#ffddbb;
+            border-radius:30px 0 6px 10px/16px 50px 20px 5px;
+        }
+        .face::before{content:' ';position:absolute;right:-12px;bottom:10px;
+            width:20px;height:68px;
+            background:#ffddbb;
+            border-radius:8px 12px 8px 10px/10px 50px 20px 5px;
+            -webkit-transform:rotateZ(5deg);
+        }
+        .face::after{content:' ';position:absolute;right:-12px;bottom:14px;
+            width:18px;height:10px;border-radius:9px 5px;
+            background:rgba(255,100,100,0.5);
+            -webkit-transform:rotateZ(20deg);
+            -webkit-filter:blur(3px);
+        }
+        .eyes{position:absolute;left:8px;top:39px;
+            width:32px;height:2px;
+            border-bottom:4px solid #000;
+            border-radius:2px 2px 15px 15px;
+            -webkit-transform:rotateZ(10deg);
+        }
+        .eyes::before{content:' ';position:absolute;left:15px;top:-30px;
+            width:10px;height:4px;
+            background:#000;
+            border-radius:4px/3px 3px 1px 1px;
+
+        }
+        .eyes::after{content:' ';position:absolute;left:17px;top:-27px;
+            width:6px;height:4px;
+            background:#ffddbb;
+            border-radius:3px/3px 3px 1px 1px;
+
+        }
+        .nose{position:absolute;left:0;top:84px;z-index:5;
+            width:3px;height:3px;
+            background:#ffddbb;
+            border:4px solid #000;
+            border-bottom-width:3px;
+            border-right-width:3px;
+            border-radius:5px;
+
+        }
+        .ears{
+            position:absolute;left:62px;top:6px;z-index:5;
+            width:46px;height:46px;
+            background:#eb0101;
+            border:2px solid #000;
+            border-bottom:0 none;
+            border-radius:10px 36px 36px 10px/23px 34px 6px 23px;
+            -webkit-transform:rotateZ(50deg);
+        }
+        .ears::before{content:' ';position:absolute;bottom:-6px;right:-6px;
+            width:48px;height:24px;
+            background:#eb0101;
+            -webkit-transform:rotateZ(-30deg);
+
+        }
+        .ears::after{content:' ';position:absolute;top:11px;left:4px;
+            width:5px;height:22px;
+            background:#ffddbb;
+            border-radius:2px 3px 1px 4px/16px 16px 6px 6px;
+            -webkit-transform:rotateZ(-8deg);
+
+        }
+        .ears.behide{left:54px;top:7px;z-index:-1;
+            -webkit-transform:rotateZ(55deg);
+        }
+        .ears.behide::before,
+        .ears.behide::after{display:none;}
+
+        .shadow{position:absolute;bottom:16px;left:20px;z-index:0;}
+        .shadow::before,
+        .shadow::after{content:' ';position:absolute;
+            background:#CCC;
+        }
+        .shadow::before{left:8px;top:0px;
+            width:90px;height:20px;
+            border-radius:45px/10px;
+        }
+        .shadow::after{left:80px;top:0px;
+            width:50px;height:14px;
+            border-radius:15px/7px;
+        }
+        .body-outside{position:absolute;top:80px;left:100px;z-index:1;
+            width:62px;height:36px;
+        }
+        .header-outside{
+            position:absolute;top:0;left:0;z-index:2;
+            width:118px;height:120px;
+        }
+
+        .ali{position:absolute;top:100px;left:100px;
+            height:120px;width:200px;-webkit-transform:translateX(300px);
+            -webkit-animation:ali 6s 0.4s infinite;
+        }
+        .header-outside{
+            -webkit-animation:head 0.6s infinite;
+        }
+        .ears{
+            -webkit-animation:ears 0.6s infinite;
+        }
+        .ears.behide{
+            -webkit-animation:ears-behide 0.6s infinite;
+        }
+        .body-outside{
+            -webkit-animation:body 0.6s infinite;
+        }
+        .foot{
+            -webkit-animation:foot 0.6s infinite;
+        }
+        .shadow{
+            -webkit-animation:shadow 0.6s infinite;
+        }
+        @-webkit-keyframes head{
+            0%{-webkit-transform:rotateZ(2deg)}
+            70%{-webkit-transform:rotateZ(-2deg)}
+            100%{-webkit-transform:rotateZ(2deg)}
+        }
+        @-webkit-keyframes body{
+            0%{-webkit-transform:translateX(1px) rotateZ(-8deg) scaleY(1);}
+            70%{-webkit-transform:translateX(-3px) translateY(-1px) rotateZ(0deg) scaleY(1.1);}
+            100%{-webkit-transform:translateX(1px) rotateZ(-8deg) scaleY(1);}
+        }
+        @-webkit-keyframes foot{
+            0%{-webkit-transform:translateX(0) rotateZ(2deg);}
+            70%{-webkit-transform:translateX(-4px) rotateZ(20deg);}
+            100%{-webkit-transform:translateX(0) rotateZ(2deg);}
+        }
+        @-webkit-keyframes ears{
+            0%{-webkit-transform:translateX(3px) translateY(3px) rotateZ(60deg);}
+            70%{-webkit-transform:translateX(0) translateY(0px) rotateZ(50deg);}
+            100%{-webkit-transform:translateX(3px) translateY(3px) rotateZ(60deg);}
+        }
+        @-webkit-keyframes ears-behide{
+            0%{-webkit-transform:translateX(1px) translateY(2px) rotateZ(60deg);}
+            70%{-webkit-transform:translateX(0) translateY(0px) rotateZ(50deg);}
+            100%{-webkit-transform:translateX(1px) translateY(2px) rotateZ(60deg);}
+        }
+        @-webkit-keyframes shadow{
+            0%{-webkit-transform:translateX(-5px)  translateY(-1px);}
+            70%{-webkit-transform:translateX(0) translateY(1px);}
+            100%{-webkit-transform:translateX(-5px)  translateY(-1px);}
+        }
+        @-webkit-keyframes ali{
+            0%{-webkit-transform:translateX(300px)}
+            10%{-webkit-transform:translateX(270px)}
+            20%{-webkit-transform:translateX(240px)}
+            30%{-webkit-transform:translateX(210px)}
+            40%{-webkit-transform:translateX(180px)}
+            50%{-webkit-transform:translateX(150px)}
+            60%{-webkit-transform:translateX(120px)}
+            70%{-webkit-transform:translateX(90px)}
+            80%{-webkit-transform:translateX(60px)}
+            90%{-webkit-transform:translateX(30px)}
+            100%{-webkit-transform:translateX(0px)}
+        }
+
+
+
+
+
+
+
+    </style>
+
+    <script>
+        // We really want to disable
+        window.open    = function() {};
+        window.alert   = function() {};
+        window.print   = function() {};
+        window.prompt  = function() {};
+        window.confirm = function() {};
+    </script>
+
+    <script>
+        // #killanim is only being used in lab full view, maybe we could
+        // use it everywhere :D
+        //if (window !== window.top && window.top.__stop_animations !== false) {
+        if (window !== window.top && location.hash !== '#dontkillanim') {
+            window.is_webkit = /(webkit)[ \/]([\w.]+)/.exec(window.navigator.userAgent.toLowerCase())
+
+            window.max_timer = window.is_webkit ? 2000 : 20
+
+            // Let's try to prevent user's from OOM'ing esp. in FX and Op.
+            // First, we need to stop CSS Animations, after say 5s ?
+            //
+            // Ok, so i tried 5s, but there are some problems. Firstly, Firefox
+            // and opera behave same. little improvement only. So making it 3s now.
+            //
+            // Tutorial: https://developer.mozilla.org/en/CSS/CSS_animations
+            // Help: http://www.sitepoint.com/css3-animation-javascript-event-handlers
+
+            var pauseCSSAnimations = function() {
+
+                var stopCSSAnimations = function() {
+                    // Get the Body Element
+                    var body = document.getElementsByTagName('body')[0];
+
+                    // We'll setup animationstart and animationiteration
+                    // events only. No need for animationend, cuz the
+                    // animation might be 30minutes long. animationiteration
+                    // cuz the animation might be .000002ms long.
+
+                    // addEventListener is perfectly supported in IE9.
+                    // and we don't care about IE8 and below. Let those
+                    // browsers die in a fire!
+
+                    body.addEventListener('webkitAnimationStart', stopAnimation, false);
+                    body.addEventListener('webkitAnimationIteration', stopAnimation, false);
+                    body.addEventListener('animationstart', stopAnimation, false);
+                    body.addEventListener('animationiteration', stopAnimation, false);
+                };
+
+                // e is the event object bro ;)
+                var stopAnimation = function(e) {
+                    // e.srcElement? lulz...
+                    var target_el = e.target;
+                    var e_type = e.type.toLowerCase();
+
+                    if (e_type.indexOf('animationstart') !== -1 || e_type.indexOf('animationiteration') !== -1) {
+                        // LOL, we need to stop the animation now!
+                        // setInterval? lulz...
+
+                        setTimeout(false, function() {
+
+                            if (target_el.style.webkitAnimationPlayState !== 'paused')
+                                target_el.style.webkitAnimationPlayState = 'paused';
+
+                            if (target_el.style.MozAnimationPlayState !== 'paused')
+                                target_el.style.MozAnimationPlayState = 'paused';
+
+                            if (target_el.style.animationPlayState !== 'paused')
+                                target_el.style.animationPlayState = 'paused';
+
+                        }, window.max_timer);
+                    }
+                }
+
+                stopCSSAnimations();
+
+            };
+
+            // Next we need to pause/stop JS Animations
+
+            var pauseJSAnimations = function() {
+
+                // We need to override setInterval, setTimeout
+                // in such a way, that all the calls register their
+                // ids in an array and we can clear all the ids
+                // after a given time.
+                //
+                // Don't trust me ? Lern2Google:
+                // http://stackoverflow.com/a/11374151/1437328
+                // http://stackoverflow.com/a/8524313/1437328
+                // http://stackoverflow.com/a/8769620/1437328
+                //
+                // 3rd one is pretty much the code you need!
+                //
+                // Thank you for building your trust in me now :D
+
+                window.setInterval = (function(oldSetInterval) {
+                    var registered = [];
+
+                    var f = function() {
+                        var id;
+                        // .. this!
+                        var $this = this;
+                        // setInterval accepts n no. of args
+                        var args = arguments;
+                        // What if someone used the awesome Function.bind() ?
+                        // I am sure we want the awesome apply() then ;)
+
+                        // this is my awesome brain usage. if first val is nonsense,
+                        // then don't register, heh.
+                        if (typeof args[0] !== 'function' && args[0] === false) {
+                            args = Array.prototype.slice.call(arguments);
+                            args = args.slice(1);
+
+                            id = oldSetInterval.apply($this, args)
+                        }
+                        else {
+                            id = oldSetInterval.apply($this, args);
+                            registered.push(id);
+                        }
+
+                        //console.log(registered);
+                        // Need to return the Interval ID
+                        return id;
+                    };
+
+                    f.clearAll = function() {
+                        var r;
+                        while (r = registered.pop()) {
+                            clearInterval(r);
+                        }
+                    };
+
+                    return f;
+                })(window.setInterval);
+
+                window.setTimeout = (function(oldSetTimeout) {
+                    var registered = [];
+
+                    var f = function() {
+                        var id;
+                        // .. this!
+                        var $this = this;
+                        // setInterval accepts n no. of args
+                        var args = arguments;
+                        // What if someone used the awesome Function.bind?
+                        // I am sure we want the awesome apply then ;)
+
+                        // this is my awesome brain usage. if first val is nonsense,
+                        // then don't register, heh.
+                        if (typeof args[0] !== 'function' && args[0] === false) {
+                            args = Array.prototype.slice.call(arguments);
+                            args = args.slice(1);
+
+                            id = oldSetTimeout.apply($this, args)
+                        }
+                        else {
+                            //console.log('lolzzzzz');
+                            id = oldSetTimeout.apply($this, args);
+                            registered.push(id);
+                        }
+
+                        //console.log(registered);
+                        // Need to return the Timeout ID
+                        return id;
+                    };
+
+                    f.clearAll = function() {
+                        var r;
+                        while (r = registered.pop()) {
+                            clearTimeout(r);
+                        }
+                    };
+
+                    return f;
+                })(window.setTimeout);
+
+                setTimeout(false, function() {
+                    setTimeout.clearAll();
+                    setInterval.clearAll();
+                }, window.max_timer);
+
+
+                // Time to Cancel rAF's Bro :)
+                // You know things are harder when people are actually
+                // using shims for rAF :/ So we need to test for vendors!
+
+                window.__requestAnimFrame = window.requestAnimationFrame || undefined;
+                window.__cancelAnimFrame = window.cancelAnimationFrame || undefined;
+                window.__vendors = ['webkit', 'moz', 'ms', 'o'];
+                window.__registered_rafs = [];
+
+                // I can't think of a good way to cancel rAF's
+                // So maybe lets use something similar to our other canceller's
+
+                window.__requestFrame = function(cb) {
+                    if (!window.__requestAnimFrame) return;
+
+                    var req_id = window.__requestAnimFrame(cb);
+                    __registered_rafs.push(req_id);
+
+                    return req_id;
+                };
+
+                // Determine the proper VendorPrefixedFunctionName
+                if (!window.__requestAnimFrame) {
+                    for (var x = 0; x < window.__vendors.length; x++) {
+                        if (!window.__requestAnimFrame) {
+                            window.__requestAnimFrame = window[window.__vendors[x]+'RequestAnimationFrame'];
+                            window[window.__vendors[x]+'RequestAnimationFrame'] = __requestFrame;
+                        }
+
+                        if(!window.__cancelAnimFrame) {
+                            // I came across webkitCancelAnimationFrame and webkitCancelRequestAnimationFrame
+                            // No idea about the difference, so maybe lets ||'fy it
+
+                            window.__cancelAnimFrame = window[window.__vendors[x]+'CancelAnimationFrame'] ||
+                                window[window.__vendors[x]+'CancelRequestAnimationFrame'];
+                        }
+                    }
+                }
+
+                // We have our proper vendor prefixed raf objects now :)
+                // So let's go mad!!!
+                // Let's Cancel our rAF's
+                setTimeout(false, function() {
+                    if (!window.__requestAnimFrame) return;
+
+                    var r;
+                    while (r = window.__registered_rafs.pop()) {
+                        window.__cancelAnimFrame(r);
+                    }
+                }, window.max_timer);
+
+            };
+
+            // Had to place outside pauseAnimations to work properly
+            // else it was getting called afterwards code setTimeout/Interval executed
+            if (window !== window.top)
+                pauseJSAnimations();
+
+            var __pauseAnimations = function() {
+                if (window !== window.top)
+                    pauseCSSAnimations();
+            };
+        }
+        else {
+            __pauseAnimations = function() {};
+        }
+    </script>
+</head>
+<body onload="__pauseAnimations();">
+
+
+<div class="ali">
+    <div class="shadow"></div>
+    <div class="body-outside">
+        <div class="ass"></div>
+        <div class="body">
+            <div class="hand"></div>
+            <div class="foot"></div>
+        </div>
+    </div>
+    <div class="header-outside">
+        <div class="ears behide"></div>
+        <div class="ears"></div>
+        <div class="nose"></div>
+        <div class="header">
+            <div class="face">
+                <div class="eyes"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+</script>
+
+
+
+</body></html>
