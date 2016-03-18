@@ -1,0 +1,30 @@
+/* ----------- iPhone 4 and 4S ----------- */
+
+/* Portrait and Landscape */
+@media only screen
+and (max-device-width: 480px) {
+    .bbq-content {
+        width:auto;
+    }
+
+    .bbq-block {
+        margin-left: 0;
+        margin-right: 0;
+        min-width: 320px;
+    }
+}
+/* Portrait and Landscape */
+@media only screen
+and (min-device-width: 481px)
+and (max-device-width: 680px){
+    .bbq-content {
+        width: 480px;
+    }
+
+    .bbq-block {
+        margin-left: 0;
+        margin-right: 0;
+        min-width: 480px;
+    }
+}
+

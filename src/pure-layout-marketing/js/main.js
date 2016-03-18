@@ -41,10 +41,13 @@ $(document).ready(function() {
                 $(window).scroll(function(){
                     if($("body").scrollTop() >= $("#main").height() - $("body").height()){
                             $("#bbqList1").find(":hidden:first").fadeIn(200);
+                        $("#bbqList1").find(":hidden:first").fadeIn(200);
                             $("#bbqList2").find(":hidden:first").fadeIn(200);
+                        $("#bbqList2").find(":hidden:first").fadeIn(200);
                     }
                 });
                 $(window).scroll();
+
             } else {
                 $("#bbqLoading").height($("body").height() - $("#main").height()).show();
             }
