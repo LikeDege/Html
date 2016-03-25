@@ -409,7 +409,6 @@ a.bbq-button-selected {
 /* `pure-u` Grid styles */
 .bbq-paginator li {
     display: inline-block;
-    *display: inline; /* IE < 8: fake inline-block */
     zoom: 1;
     letter-spacing: normal;
     word-spacing: normal;

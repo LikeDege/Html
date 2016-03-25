@@ -5,44 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="bbq.">
     <title>BBQ</title>
-    <link rel="stylesheet" href="pure-0.6.0.css">
+    <link rel="stylesheet" href="css/normalize.css?v=2">
     <!--[if lte IE 8]>
-        <link rel="stylesheet" href="css/layouts/marketing-old-ie.css?v=11">
+    <link rel="stylesheet" href="css/bbq-old-ie.css?v=11">
     <![endif]-->
     <!--[if gt IE 8]><!-->
-        <link rel="stylesheet" href="css/bbq.css?v=1">
+    <link rel="stylesheet" href="css/bbq.css?v=6">
     <!--<![endif]-->
 </head>
 <body style="height:100%">
 <div id="main">
-    <div class="pure-menu pure-menu-horizontal bbq-menu">
-        <a class="pure-menu-heading" href="#">表白墙</a>
-        <ul class="pure-menu-list">
-            <li class="pure-menu-item"><a href="#" class="pure-menu-link">登录</a></li>
-            <li class="pure-menu-item"><a href="#" class="pure-menu-link">注册</a></li>
+    <div class="bbq-menu">
+        <a class="bbq-menu-heading" href="#">表白墙</a>
+        <ul class="bbq-menu-list">
+            <li class="bbq-menu-item"><a href="#" class="bbq-menu-link">登录</a></li>
+            <li class="bbq-menu-item"><a href="#" class="bbq-menu-link">注册</a></li>
         </ul>
     </div>
     <div class="bbq-publisher-container">
         <div class="bbq-publisher">
-            <form class="pure-form pure-form-stacked publisher-form">
-                <h4 class="publisher-title">
+            <form class="bbq-publisher-form">
+                <h4 class="bbq-publisher-title">
                     <span>SAY THE HEARTS OF LOVE</span>
-                    <span class="publisher-limit">
-                        还可以输入<span class="publisher-length">200</span>字
+                    <span class="bbq-publisher-limit">
+                        还可以输入<span class="bbq-publisher-length">200</span>字
                     </span>
                 </h4>
-                <textarea id="txtaBBQ" class="publisher-input"></textarea>
+                <textarea id="txtaBBQ" class="bbq-publisher-input"></textarea>
                 <!--
                     <button type="button" id="btnFace" class="pure-button icon-look" title="表情" style="float:left;background-color: #2d3e50;color:#ffffff;
         margin: 8px 0;padding-top:0.282em;padding-bottom:0.282em;"><i class="iconfont" >&#xe635;</i>表情</button>
                     <button type="button" id="btnImage" class="pure-button icon-look" title="图片" style="float:left;background-color: #2d3e50;color:#ffffff;
         margin: 8px;padding-top:0.282em;padding-bottom:0.282em;"><i class="iconfont" >&#xe6d1;</i>图片</button>
         -->
-                <div class="publisher-buttons clear-fixed">
-                    <button id="btnFace" type="button" class="pure-button float-left" title="表情">表情</button>
-                    <button id="btnImg" type="button" class="pure-button float-left" title="图片">图片</button>
-                    <input id="inputImg" type="file" class="hidden">
-                    <button id="btnPublish" type="button" class="pure-button float-right">发布</button>
+                <div class="bbq-publisher-buttons clear-fixed">
+                    <button id="btnFace" type="button" class="bbq-button float-left" title="表情">表情</button>
+                    <button id="btnImg" type="button" class="bbq-button float-left" title="图片">图片</button>
+                    <input id="inputImg" type="file" class="bbq-button-hidden">
+                    <button id="btnPublish" type="button" class="bbq-button float-right">发布</button>
                 </div>
             </form>
         </div>
@@ -65,7 +65,7 @@
         </ul>
         -->
     </div>
-    <div class="bbq-footer">
+    <div class="bbq-footer" style="display:none">
         Copyright © <a href="www.biaobaiqiang.net">表白墙</a>&nbsp;|&nbsp;
         <a href="#" target="_blank">关于我们</a>&nbsp;|&nbsp;
         <a href="http://weibo.com/u/5191312157" target="_blank">@新浪微博</a>&nbsp;|&nbsp;
@@ -95,13 +95,6 @@
             </a>
         </div>
         {{/if}}
-        <div class="pure-menu pure-menu-horizontal">
-            <ul class="pure-menu-list" style="width:100%;">
-                <li class="pure-menu-item" style="width:33.3333%;"><a href="#" class="pure-menu-link" style="text-align: center;">收藏</a></li>
-                <li class="pure-menu-item" style="width:33.3333%;"><a href="#" class="pure-menu-link" style="text-align: center;">评论</a></li>
-                <li class="pure-menu-item" style="width:33.3333%;"><a href="#" class="pure-menu-link" style="text-align: center;">点赞</a></li>
-            </ul>
-        </div>
     </li>
 </script>
 <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
@@ -109,7 +102,7 @@
 <script src="http://gsgd.co.uk/sandbox/jquery/easing/jquery.easing.1.3.js"></script>-->
 <script src="./js/template.js?v=8&callback=alert"></script>
     <script>
-        document.write("<scri"+"pt type='text/javascript' src='./js/main.js?t='" + Math.random() + "></s"+"cript>");
+        document.write("<scri"+"pt type='text/javascript' src='./js/main.js?t=" + Math.random() + "'></s"+"cript>");
     </script>
 
 </body>

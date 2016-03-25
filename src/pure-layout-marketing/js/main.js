@@ -1,82 +1,153 @@
 /**
  * Created by laiyidan on 2016/1/20.
  */
-$(document).ready(function() {
+$(document).ready(function () {
     $("#btnFace").click(showFace);
     $("#btnImg").click(selectImg);
     $("#inputImg").change(showImg);
     $("#btnPublish").click(publish);
-    initData();
-    /*
-    function initData() {
-        $.get('./data.json', function(data) {
-            if(data.post.length > 0) {
-                (function initOne(i){
-                    if(i == data.post.length) {
-                        return;
-                    }
 
-                    var render = template.compile($('#bbqTemplate').html());
-                    var html = render(data.post[i]);
-                    if($("#bbqList1").height() <= $("#bbqList2").height()){$("#bbqList1").append(html)}else {$("#bbqList2").append(html)}
-                    $(".bbq-block:hidden").fadeIn(200, function(){
-                        initOne(i+1);
+    function initeScroll() {
+        this.pageNo = 1,
+            this.pageSize = 20,
+            this.totalCount = -1,
+            this.isLoading = false,
+            this.isRendering = false,
+            this.renderData = [],
+            this.renderIndex = 0,
+            this.renderHtml = template.compile($('#bbqTemplate').html());
+        var self = this;
+        $(window).scroll(function () {
+            self.render();
+        });
+    }
+
+    initeScroll.prototype = {
+        constructor: initeScroll,
+        renderComplete: function () {
+            return this.renderIndex >= this.renderData.length;
+        },
+        loadComplete: function () {
+            return this.pageNo == 3;
+        },
+        isScrollBottom: function () {
+            return $("body").scrollTop() >= $("#main").height() - $("body").height();
+        },
+        render: function () {
+            var self = this;
+            var tIsRendering = self.isRendering;
+            var tRenderComplete = self.renderComplete();
+            if (!tIsRendering && (self.isScrollBottom() || self.needToRender()) && !tRenderComplete) {
+                self.isRendering = true;
+                (function renderOne(source) {
+                    var html = self.renderHtml(self.renderData[self.renderIndex++]);
+                    if ($("#bbqList1").height() <= $("#bbqList2").height()) {
+                        $("#bbqList1").append(html);
+                    } else {
+                        $("#bbqList2").append(html);
+                    }
+                    $(".bbq-block:hidden").fadeIn(200, function () {
+                        // 当可视区域留空白就继续渲染
+                        if ((self.needToRender() || self.isScrollBottom()) && !self.renderComplete()) {
+                            renderOne('inner');
+                        } else {
+                            self.isRendering = false;
+                            self.renderComplete() && self.loadMore();
+                        }
                     });
-                })(0);
+                })('scroll');
+            } else if (!tIsRendering && tRenderComplete) {
+                self.loadMore();
             }
-        }); // ajax获取数据
-    }*/
-    function initData() {
-        $.get('./data.json', function(data) {
-            if(data.post.length > 0) {
-                (function initOne(i){
-                    if(i == data.post.length) {
-                        return;
+        },
+        loadMore: function () {
+            var self = this;
+            if (self.canBeLoad()) {
+                self.isLoading = true;
+                $.get('./data' + this.pageNo + '.json', function (data) {
+                    if (data.post.length > 0) {
+                        self.renderData = data.post;
+                        self.renderIndex = 0;
+                        self.pageNo++;
+                        self.render();
+                    } else {
+                        self.renderData = [];
+                        self.renderIndex = 0;
                     }
-                    var render = template.compile($('#bbqTemplate').html());
-                    var html = render(data.post[i]);
-                    if(i % 2 == 0){$("#bbqList1").append(html)}else {$("#bbqList2").append(html)}
-                    initOne(i+1);
-                })(0);
-                $(window).scroll(function(){
-                    if($("body").scrollTop() >= $("#main").height() - $("body").height()){
-                            $("#bbqList1").find(":hidden:first").fadeIn(200);
-                        $("#bbqList1").find(":hidden:first").fadeIn(200);
-                            $("#bbqList2").find(":hidden:first").fadeIn(200);
-                        $("#bbqList2").find(":hidden:first").fadeIn(200);
-                    }
+                    self.isLoading = false;
                 });
-                $(window).scroll();
-
-            } else {
-                $("#bbqLoading").height($("body").height() - $("#main").height()).show();
             }
-        }); // ajax获取数据
-
-    }
-
-    function valHandler(key, val) {
-        if(key == 'user.headpic' && !val) {
-            // 如果logo为空, 路径改成默认logo路径
-            val = './img/df.jpg';
+        },
+        needToRender: function () {
+            var readHeight = $("body").height() + $("body").scrollTop();
+            var h1 = $("#bbqList1").offset().top + $("#bbqList1").height();
+            var h2 = $("#bbqList2").offset().top + $("#bbqList2").height();
+            return readHeight - h1 > 100 || readHeight - h2 > 100;
+        },
+        canBeLoad: function () {
+            return this.isLoading || this.isRendering ? false : !this.loadComplete();
         }
-        return val;
+    };
+
+    initData();
+    function initData() {
+        var scroll = new initeScroll();
+        scroll.render();
     }
 
-    function publish(){
-        $("#bbqList1").fadeOut(400, function(){
-            if($(this).css("float")=="left"){$(this).css("float","right")}
-        }).delay(500).fadeIn(400);
-        $("#bbqList2").fadeOut(1000, function(){
-            if($(this).css("float")=="left"){$(this).css("float","right")}
-        }).delay(500).fadeIn(1000);
+    function publish() {
+        var render = template.compile($('#bbqTemplate').html());
+        var post = {
+            "imgwidth": 720,
+            "apassedtime": null,
+            "commenttime": 0,
+            "latitude": 29.6672330,
+            "postid": 37688,
+            "upassedtime": null,
+            "iscream": null,
+            "userid": 3269,
+            "content": $("#txtaBBQ").val(),
+            "adminpassed": null,
+            "nickname": "0宁子欧尼0",
+            "userip": "183.64.214.192",
+            "theme": null,
+            "state": 30,
+            "isanonymous": "0",
+            "longitude": 107.1985260,
+            "imgheight": 691,
+            "mobile": null,
+            "userpassed": null,
+            "uptime": 0,
+            "collecttime": 0,
+            "audiourl": null,
+            "videourl": null,
+            "addtime": "2016-03-18 10:31:24",
+            "posttype": "2",
+            "imageurl": null,
+            "location": "重庆市涪陵区本祠街",
+            "user": {
+                "sex": "1",
+                "nickname": "0宁子欧尼0",
+                "userid": 3269,
+                "headpic": "http:\/\/static.biaobaiqiang.net\/upload\/headpic\/3269\/20160317213507.jpg"
+            }
+        };
+        var html = render(post);
+
+        if ($("#bbqList1").height() <= $("#bbqList2").height()) {
+            $("#bbqList1").prepend(html);
+        } else {
+            $("#bbqList2").prepend(html);
+        }
+        $(".bbq-block:hidden").slideDown("slow");
     }
 
     function showFace() {
         closePop();
         var btnFace = document.getElementById("btnFace");
-        var popTop = getOffsetTop(btnFace) + btnFace.offsetHeight + 11;
-        var popLeft = getOffsetLeft(btnFace);
+        var btnFaceOffset = $("#btnFace").offset();
+        var popTop = btnFaceOffset.top + btnFace.offsetHeight + 11;
+        var popLeft = btnFaceOffset.left;
         if ($("#bbqFaces").length == 0) {
             var bbqPop = $("<div id='bbqFaces' class='bbq-pop'><div class='bbq-pop-arrow'></div><a class='bbq-pop-close'></a></div>");
             bbqPop.css({
@@ -98,20 +169,6 @@ $(document).ready(function() {
         $("#bbqFaces").slideDown("fast");
     }
 
-    //获取元素的纵坐标（相对于窗口）
-    function getOffsetTop(e) {
-        var offset = e.offsetTop;
-        if (e.offsetParent != null) offset += getOffsetTop(e.offsetParent);
-        return offset;
-    }
-
-    //获取元素的横坐标（相对于窗口）
-    function getOffsetLeft(e) {
-        var offset = e.offsetLeft;
-        if (e.offsetParent != null) offset += getOffsetLeft(e.offsetParent);
-        return offset;
-    }
-
     //选择要上传的图片
     function selectImg() {
         document.getElementById("inputImg").click();
@@ -120,8 +177,9 @@ $(document).ready(function() {
     function showImg() {
         closePop();
         var btnImg = document.getElementById("btnImg");
-        var popTop = getOffsetTop(btnImg) + btnImg.offsetHeight + 11;
-        var popLeft = getOffsetLeft(btnImg);
+        var btnImgOffset = $("#btnImg").offset();
+        var popTop = btnImgOffset.top + btnImg.offsetHeight + 11;
+        var popLeft = btnImgOffset.left;
         if ($("#bbqPreviewImg").length == 0) {
             var bbqPop = $("<div id='bbqPreviewImg' class='bbq-pop'><div class='bbq-pop-arrow'></div><a class='bbq-pop-close'></a></div>");
             bbqPop.css({
@@ -148,8 +206,8 @@ $(document).ready(function() {
      */
     function closePop() {
         if ($(".bbq-pop").length > 0) {
-            $(".bbq-pop").each(function(){
-                if($(this).css("display") != "none"){
+            $(".bbq-pop").each(function () {
+                if ($(this).css("display") != "none") {
                     $(this).hide();
                 }
             })
